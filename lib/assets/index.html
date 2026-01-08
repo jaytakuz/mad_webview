@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriveNow | Premium Car Rental</title>
+
+    <style>
+        :root {
+          --primary: #ff6b00;
+          --dark: #111;
+          --gray: #777;
+          --light: #f9f9f9;
+          --radius: 16px;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Segoe UI", system-ui, sans-serif;
+        }
+
+        body {
+          background: white;
+          color: var(--dark);
+          line-height: 1.6;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        /* NAV */
+        nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 24px 8%;
+          position: sticky;
+          top: 0;
+          background: white;
+          z-index: 10;
+          box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+
+        nav h1 {
+          font-size: 26px;
+          font-weight: 800;
+          color: var(--primary);
+        }
+
+        nav ul {
+          display: flex;
+          gap: 28px;
+          list-style: none;
+        }
+
+        nav ul li {
+          font-weight: 500;
+          cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+          min-height: 90vh;
+          background:
+            linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+            url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          padding: 0 8%;
+          color: white;
+        }
+
+        .hero-content {
+          max-width: 650px;
+        }
+
+        .hero h2 {
+          font-size: 54px;
+          line-height: 1.2;
+          margin-bottom: 20px;
+        }
+
+        .hero p {
+          font-size: 18px;
+          margin-bottom: 30px;
+          color: #eee;
+        }
+
+        .btn {
+          padding: 14px 30px;
+          border-radius: 50px;
+          border: none;
+          background: var(--primary);
+          color: white;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: .3s;
+        }
+
+        .btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 30px rgba(255,107,0,.4);
+        }
+
+        /* SECTION */
+        section {
+          padding: 90px 8%;
+        }
+
+        .section-title {
+          text-align: center;
+          margin-bottom: 60px;
+        }
+
+        .section-title h3 {
+          font-size: 38px;
+          margin-bottom: 10px;
+        }
+
+        .section-title p {
+          color: var(--gray);
+        }
+
+        /* CARS */
+        .cars {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+        }
+
+        .car-card {
+          background: white;
+          border-radius: var(--radius);
+          box-shadow: 0 10px 40px rgba(0,0,0,.08);
+          overflow: hidden;
+          transition: .3s;
+        }
+
+        .car-card:hover {
+          transform: translateY(-8px);
+        }
+
+        .car-card img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+
+        .car-card div {
+          padding: 24px;
+        }
+
+        .car-card h4 {
+          font-size: 22px;
+          margin-bottom: 8px;
+        }
+
+        .price {
+          font-weight: 700;
+          color: var(--primary);
+          margin-top: 10px;
+        }
+
+        /* FEATURES */
+        .features {
+          background: var(--light);
+        }
+
+        .feature-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 30px;
+        }
+
+        .feature {
+          background: white;
+          padding: 30px;
+          border-radius: var(--radius);
+          text-align: center;
+          box-shadow: 0 10px 30px rgba(0,0,0,.06);
+        }
+
+        .feature span {
+          font-size: 42px;
+          display: block;
+          margin-bottom: 15px;
+          color: var(--primary);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+        }
+
+        .testimonial {
+          background: white;
+          padding: 30px;
+          border-radius: var(--radius);
+          box-shadow: 0 10px 30px rgba(0,0,0,.06);
+        }
+
+        .testimonial p {
+          font-style: italic;
+          margin-bottom: 15px;
+        }
+
+        /* CTA */
+        .cta {
+          background: linear-gradient(135deg, var(--primary), #ff8c33);
+          color: white;
+          text-align: center;
+          border-radius: var(--radius);
+          padding: 70px 40px;
+        }
+
+        .cta h3 {
+          font-size: 40px;
+          margin-bottom: 20px;
+        }
+
+        /* FOOTER */
+        footer {
+          text-align: center;
+          padding: 30px;
+          color: var(--gray);
+          background: #111;
+        }
+
+        footer span {
+          color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+          .hero h2 {
+            font-size: 40px;
+          }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>DriveNow</h1>
+    <ul>
+        <li>Home</li>
+        <li>Cars</li>
+        <li>Pricing</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Premium Car Rental<br>For Every Journey</h2>
+        <p>Choose from a wide range of luxury, SUV, and economy cars at unbeatable prices.</p>
+        <button class="btn">Book Your Ride</button>
+    </div>
+</section>
+
+<section>
+    <div class="section-title">
+        <h3>Our Popular Cars</h3>
+        <p>Well maintained, comfortable, and affordable</p>
+    </div>
+
+    <div class="cars">
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068">
+            <div>
+                <h4>BMW X5</h4>
+                <p>Luxury SUV · Automatic</p>
+                <div class="price">$120 / day</div>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2">
+            <div>
+                <h4>Tesla Model 3</h4>
+                <p>Electric · Autopilot</p>
+                <div class="price">$140 / day</div>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1549924231-f129b911e442">
+            <div>
+                <h4>Toyota Corolla</h4>
+                <p>Economy · Fuel Efficient</p>
+                <div class="price">$45 / day</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="section-title">
+        <h3>Why Choose Us</h3>
+        <p>Your comfort is our priority</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature">
+            <span>🚗</span>
+            <h4>Wide Car Selection</h4>
+            <p>From economy to luxury vehicles</p>
+        </div>
+        <div class="feature">
+            <span>💳</span>
+            <h4>Easy Payment</h4>
+            <p>Multiple secure payment options</p>
+        </div>
+        <div class="feature">
+            <span>🕒</span>
+            <h4>24/7 Support</h4>
+            <p>We’re here whenever you need us</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="section-title">
+        <h3>What Our Customers Say</h3>
+    </div>
+
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>"Best car rental experience I've ever had. Smooth and professional."</p>
+            <strong>— Alex</strong>
+        </div>
+        <div class="testimonial">
+            <p>"Affordable prices and the cars are super clean."</p>
+            <strong>— Sarah</strong>
+        </div>
+        <div class="testimonial">
+            <p>"Highly recommended for business trips."</p>
+            <strong>— Daniel</strong>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="cta">
+        <h3>Ready to Hit the Road?</h3>
+        <p>Book your perfect car today and enjoy the ride.</p><br>
+        <button class="btn">Get Started</button>
+    </div>
+</section>
+
+<footer>
+    © 2026 <span>DriveNow</span>. All rights reserved.
+</footer>
+
+</body>
+</html>

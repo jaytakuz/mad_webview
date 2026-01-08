@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -37,7 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _controller = WebViewController();
-    _controller.loadRequest(Uri.parse('https://flutter.dev/'));
+    // _controller.loadRequest(Uri.parse('https://flutter.dev/'));
+    _controller.loadFlutterAsset('lib/assets/index.html');
+    _controller.loadHtmlString('<html><body><h1>HTML String</h1><p>This is a paragraph.</p></body></html>');
   }
 
   @override
